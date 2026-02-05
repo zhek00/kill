@@ -8,6 +8,7 @@ import { authConfig } from "./auth.config";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
     ...authConfig,
+    secret: process.env.AUTH_SECRET || "fallback-secret-key-123",
     adapter: PrismaAdapter(prisma),
     session: { strategy: "jwt" },
     providers: [
