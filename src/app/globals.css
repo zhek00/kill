@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --color-background: #F5F5F5;
+    --color-foreground: #333333;
+
+    --color-card: #FFFFFF;
+    --color-card-foreground: #333333;
+
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #333333;
+
+    --color-primary: #D4AF37;
+    --color-primary-foreground: #FFFFFF;
+
+    --color-secondary: #4BB05D;
+    --color-secondary-foreground: #FFFFFF;
+
+    --color-muted: #F5F5F5;
+    --color-muted-foreground: #737373;
+
+    --color-accent: #FF8F00;
+    --color-accent-foreground: #FFFFFF;
+
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #FFFFFF;
+
+    --color-border: #E0E0E0;
+    --color-input: #FFFFFF;
+    --color-ring: #D4AF37;
+
+    --color-chart-1: #D4AF37;
+    --color-chart-2: #4BB05D;
+    --color-chart-3: #FF8F00;
+    --color-chart-4: #333333;
+    --color-chart-5: #E0E0E0;
+
+    --color-sidebar: #D4AF37;
+    --sidebar-foreground: #FFFFFF;
+    --sidebar-primary: #FFFFFF;
+    --sidebar-primary-foreground: #D4AF37;
+    --sidebar-accent: rgba(255, 255, 255, 0.1);
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: rgba(255, 255, 255, 0.2);
+    --sidebar-ring: #FFFFFF;
+
+    --font-display: "Montserrat", sans-serif;
+    --font-body: "Montserrat", sans-serif;
+
+    --radius-lg: 8px;
+    --radius-md: 4px;
+    --radius-sm: 2px;
+
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    @keyframes accordion-down {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: var(--radix-accordion-content-height);
+        }
+    }
+
+    @keyframes accordion-up {
+        from {
+            height: var(--radix-accordion-content-height);
+        }
+
+        to {
+            height: 0;
+        }
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: #E0E0E0;
+    }
+
+    :root {
+        --background: #F5F5F5;
+        --foreground: #333333;
+        --card: #FFFFFF;
+        --card-foreground: #333333;
+        --popover: #FFFFFF;
+        --popover-foreground: #333333;
+        --primary: #D4AF37;
+        --primary-foreground: #FFFFFF;
+        --secondary: #4BB05D;
+        --secondary-foreground: #FFFFFF;
+        --muted: #F5F5F5;
+        --muted-foreground: #737373;
+        --accent: #FF8F00;
+        --accent-foreground: #FFFFFF;
+        --destructive: #EF4444;
+        --destructive-foreground: #FFFFFF;
+        --border: #E0E0E0;
+        --input: #FFFFFF;
+        --ring: #D4AF37;
+        --radius: 8px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #F5F5F5;
+        color: #333333;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .font-price {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .font-old-price {
+        font-size: 12px;
+        text-decoration: line-through;
+        color: #737373;
+    }
+
+    .btn-buy {
+        background-color: #4BB05D;
+        color: #FFFFFF;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .btn-buy:hover {
+        background-color: #3E8E41;
+    }
+
+    .card-shadow {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .discount-badge {
+        background-color: #FF8F00;
+        color: #FFFFFF;
+        font-weight: 700;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    /* Custom styles moved from styled-jsx to avoid Turbopack issues */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .swiper-CLS {
+        min-height: 150px;
+    }
+
+    @media (min-width: 640px) {
+        .swiper-CLS {
+            min-height: 220px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .swiper-CLS {
+            min-height: 300px;
+        }
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
